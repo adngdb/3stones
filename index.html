@@ -34,13 +34,26 @@ body {
 .stone + .stone + .stone {
     background-color: #666;
 }
-.selected {
+
+.stone div {
+    background-color: black;
+    height: 100%;
+    width: 30%;
+}
+.stone + .stone div {
+    background-color: #333;
+}
+.stone + .stone + .stone div {
+    background-color: #666;
+}
+
+.selected div {
     background-color: #ea148c;
 }
-.stone + .stone.selected {
+.stone + .selected div {
     background-color: #00afed;
 }
-.stone + .stone + .stone.selected {
+.stone + .stone + .selected div {
     background-color: #ffff00;
 }
 
@@ -49,9 +62,9 @@ body {
 
     <body>
         <div id="game-content">
-            <div class="stone"></div>
-            <div class="stone"></div>
-            <div class="stone"></div>
+            <div class="stone"><div></div></div>
+            <div class="stone"><div></div></div>
+            <div class="stone"><div></div></div>
         </div>
 
         <script>
