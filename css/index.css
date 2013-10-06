@@ -49,6 +49,7 @@ body {
     background-color: #ffff00;
 }
 button {
+    display: none;
     height: 3.8rem;
     margin: 0 0 1rem;
     padding: 0 1.5rem;
