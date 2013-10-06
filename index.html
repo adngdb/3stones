@@ -46,5 +46,20 @@ body {
             <div class="stone"></div>
             <div class="stone"></div>
         </div>
+
+        <script>
+
+var stones = document.getElementsByClassName('stone');
+
+Array.forEach(stones, function (s, i) {
+    var onStoneClick = function (e) {
+        e.preventDefault();
+        this.classList.toggle('selected');
+    }
+    s.addEventListener('click', onStoneClick);
+    s.addEventListener('touchstart', onStoneClick);
+});
+
+        </script>
     </body>
 </html>
