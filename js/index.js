@@ -2,17 +2,18 @@
     "use strict";
 
     var stonesList = document.getElementsByClassName('stone');
+    var locked = false;
 
     Array.forEach(stonesList, function (stoneElt) {
         var onStoneClick = function (e) {
             e.preventDefault();
-            this.classList.toggle('selected');
+            if (!locked) {
+              this.classList.toggle('selected');
+            }
         }
         stoneElt.addEventListener('click', onStoneClick);
         stoneElt.addEventListener('touchstart', onStoneClick);
     });
-
-    var locked = false;
 
     function handleOrientationEvent(ev) {
         if (!locked && isFaceDown(ev.beta)) {
