@@ -3,13 +3,50 @@
     <head>
         <title>· · ·</title>
         <meta charset="utf-8">
+
+        <style>
+
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    align-items: center;
+    background-color: black;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#game-content {
+    height: 100%;
+    width: 100%;
+}
+
+.stone {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 33%;
+    width: 100%;
+}
+
+.stone + .stone {
+    border-top: 2px solid red;
+}
+
+        </style>
     </head>
 
     <body>
         <div id="game-content">
-            <checkbox id="stone-1"></checkbox>
-            <checkbox id="stone-2"></checkbox>
-            <checkbox id="stone-3"></checkbox>
+            <div class="stone" id="stone-1"></div>
+            <div class="stone" id="stone-2"></div>
+            <div class="stone" id="stone-3"></div>
         </div>
     </body>
 </html>
