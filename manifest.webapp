@@ -15,5 +15,6 @@
     "name": "Adrian Gaudebert",
     "url": "http://games.lqbs.fr/3stones"
   },
+  "appcache_path": "/3stones/cache.manifest",
   "default_locale": "en"
 }

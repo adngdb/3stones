@@ -1,0 +1,20 @@
+CACHE MANIFEST
+# 07-10-2013 00:11
+
+CACHE:
+index.html
+js/app.js
+css/index.css
+img/icon16.png
+img/icon30.png
+img/icon48.png
+img/icon60.png
+img/icon128.png
+img/icon512.png
+manifest.webapp
+
+# catch-all for anything else
+NETWORK:
+*
+http://*
+https://*
