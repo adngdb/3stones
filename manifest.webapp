@@ -1,0 +1,19 @@
+{
+  "version": "0.1",
+  "name": "3 Stones",
+  "description": "The game of 3 stones",
+  "launch_path": "/",
+  "icons": {
+    "16": "/img/icon16.png",
+    "30": "/img/icon30.png",
+    "48": "/img/icon48.png",
+    "60": "/img/icon60.png",
+    "128": "/img/icon128.png",
+    "512": "/img/icon512.png"
+  },
+  "developer": {
+    "name": "Adrian Gaudebert",
+    "url": "http://games.lqbs.fr/3stones"
+  },
+  "default_locale": "en"
+}
