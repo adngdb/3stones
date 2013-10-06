@@ -60,6 +60,23 @@ Array.forEach(stones, function (s, i) {
     s.addEventListener('touchstart', onStoneClick);
 });
 
+var locked = false;
+
+function handleOrientationEvent(ev) {
+  if (!locked && isFaceDown(ev.beta)) {
+    locked = true;
+  }
+  if (locked && !isFaceDown(ev.beta)) {
+    locked = false;
+  }
+}
+
+function isFaceDown(beta) {
+  return Math.abs(beta) > 170;
+}
+
+window.addEventListener("deviceorientation", handleOrientationEvent, true);
+
         </script>
     </body>
 </html>
