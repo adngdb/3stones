@@ -25,7 +25,7 @@ body {
 
 #stones-count {
     align-items: center;
-    color: white;
+    color: #ff0066;
     display: flex;
     height: 100%;
     justify-content: center;
@@ -48,11 +48,9 @@ body {
     opacity: .5;
     width: 100%;
 }
-
 .stone + .stone {
     border-top: 2px solid gray;
 }
-
 .stone.selected {
     background-color: white;
 }
@@ -70,46 +68,49 @@ body {
 
         <script>
 
-var stonesElt = document.getElementsByClassName('stone');
-var count = 0;
-var stonesCountElt = document.getElementById('stones-count').getElementsByTagName('span')[0];
+(function () {
+    "use strict";
 
-Array.forEach(stonesElt, function (s, i) {
-    var onStoneClick = function (e) {
-        e.preventDefault();
-        this.classList.toggle('selected');
+    var stonesList = document.getElementsByClassName('stone');
+    var stonesCount = 0;
+    var stonesCountElt = document.getElementById('stones-count').getElementsByTagName('span')[0];
 
-        this.selected = !this.selected;
-        if (this.selected) {
-            count++;
+    Array.forEach(stonesList, function (stoneElt) {
+        var onStoneClick = function (e) {
+            e.preventDefault();
+            this.classList.toggle('selected');
+
+            this.selected = !this.selected;
+            if (this.selected) {
+                stonesCount++;
+            }
+            else {
+                stonesCount--;
+            }
+
+            stonesCountElt.innerHTML = stonesCount.toString();
         }
-        else {
-            count--;
-        }
+        stoneElt.addEventListener('click', onStoneClick);
+        stoneElt.addEventListener('touchstart', onStoneClick);
+    });
 
-        console.log(stonesCountElt);
-        stonesCountElt.innerHTML = count.toString();
+    var locked = false;
+
+    function handleOrientationEvent(ev) {
+      if (!locked && isFaceDown(ev.beta)) {
+        locked = true;
+      }
+      if (locked && !isFaceDown(ev.beta)) {
+        locked = false;
+      }
     }
-    s.addEventListener('click', onStoneClick);
-    s.addEventListener('touchstart', onStoneClick);
-});
 
-var locked = false;
+    function isFaceDown(beta) {
+      return Math.abs(beta) > 170;
+    }
 
-function handleOrientationEvent(ev) {
-  if (!locked && isFaceDown(ev.beta)) {
-    locked = true;
-  }
-  if (locked && !isFaceDown(ev.beta)) {
-    locked = false;
-  }
-}
-
-function isFaceDown(beta) {
-  return Math.abs(beta) > 170;
-}
-
-window.addEventListener("deviceorientation", handleOrientationEvent, true);
+    window.addEventListener("deviceorientation", handleOrientationEvent, true);
+})();
 
         </script>
     </body>
