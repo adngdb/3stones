@@ -1,0 +1,65 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-color: black;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#game-content {
+    height: 100%;
+    width: 100%;
+}
+
+.stone {
+    background-color: black;
+    height: 33%;
+    width: 100%;
+}
+.stone + .stone {
+    background-color: #333;
+}
+.stone + .stone + .stone {
+    background-color: #666;
+}
+
+.stone div {
+    background-color: black;
+    height: 100%;
+    width: 30%;
+}
+.stone + .stone div {
+    background-color: #333;
+}
+.stone + .stone + .stone div {
+    background-color: #666;
+}
+
+.selected div {
+    background-color: #ea148c;
+}
+.stone + .selected div {
+    background-color: #00afed;
+}
+.stone + .stone + .selected div {
+    background-color: #ffff00;
+}
+button {
+    height: 3.8rem;
+    margin: 0 0 1rem;
+    padding: 0 1.5rem;
+    background: #fafafa;
+    border: 0.1rem solid #a6a6a6;
+    border-radius: 0.2rem;
+    font-size: 1.6rem;
+    line-height: 3.8rem;
+    color: #333;
+    text-align: center;
+    text-shadow: 0.1rem 0.1rem 0 rgba(255,255,255,0.3);
+    text-decoration: none;
+    outline: none;
+}

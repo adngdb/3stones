@@ -4,103 +4,18 @@
         <title>· · ·</title>
         <meta charset="utf-8">
         <link rel="icon" href="img/icon16.png">
-        <style>
-
-html {
-    height: 100%;
-    width: 100%;
-}
-body {
-    background-color: black;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-#game-content {
-    height: 100%;
-    width: 100%;
-}
-
-.stone {
-    background-color: black;
-    height: 33%;
-    width: 100%;
-}
-.stone + .stone {
-    background-color: #333;
-}
-.stone + .stone + .stone {
-    background-color: #666;
-}
-
-.stone div {
-    background-color: black;
-    height: 100%;
-    width: 30%;
-}
-.stone + .stone div {
-    background-color: #333;
-}
-.stone + .stone + .stone div {
-    background-color: #666;
-}
-
-.selected div {
-    background-color: #ea148c;
-}
-.stone + .selected div {
-    background-color: #00afed;
-}
-.stone + .stone + .selected div {
-    background-color: #ffff00;
-}
-
-        </style>
+        <link rel="stylesheet" href="css/index.css">
     </head>
 
     <body>
+        <button id="install-btn">Install</button>
         <div id="game-content">
             <div class="stone"><div></div></div>
             <div class="stone"><div></div></div>
             <div class="stone"><div></div></div>
         </div>
 
-        <script>
-
-(function () {
-    "use strict";
-
-    var stonesList = document.getElementsByClassName('stone');
-
-    Array.forEach(stonesList, function (stoneElt) {
-        var onStoneClick = function (e) {
-            e.preventDefault();
-            this.classList.toggle('selected');
-        }
-        stoneElt.addEventListener('click', onStoneClick);
-        stoneElt.addEventListener('touchstart', onStoneClick);
-    });
-
-    var locked = false;
-
-    function handleOrientationEvent(ev) {
-      if (!locked && isFaceDown(ev.beta)) {
-        locked = true;
-      }
-      if (locked && !isFaceDown(ev.beta)) {
-        locked = false;
-      }
-    }
-
-    function isFaceDown(beta) {
-      return Math.abs(beta) > 170;
-    }
-
-    window.addEventListener("deviceorientation", handleOrientationEvent, true);
-})();
-
-        </script>
+        <script src="js/index.js"></script>
+        <script src="js/install.js"></script>
     </body>
 </html>
