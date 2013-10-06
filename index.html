@@ -23,43 +23,31 @@ body {
     width: 100%;
 }
 
-#stones-count {
-    align-items: center;
-    color: #ff0066;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-}
-    #stones-count span {
-        align-items: center;
-        display: flex;
-        font-size: 30rem;
-        justify-content: center;
-    }
-
 .stone {
     background-color: black;
     height: 33%;
-    opacity: .5;
     width: 100%;
 }
 .stone + .stone {
-    border-top: 2px solid gray;
+    background-color: #333;
 }
-.stone.selected {
-    background-color: white;
+.stone + .stone + .stone {
+    background-color: #666;
+}
+.selected {
+    background-color: #ea148c;
+}
+.stone + .stone.selected {
+    background-color: #00afed;
+}
+.stone + .stone + .stone.selected {
+    background-color: #ffff00;
 }
 
         </style>
     </head>
 
     <body>
-        <p id="stones-count"><span>0</span></p>
         <div id="game-content">
             <div class="stone"></div>
             <div class="stone"></div>
@@ -72,23 +60,11 @@ body {
     "use strict";
 
     var stonesList = document.getElementsByClassName('stone');
-    var stonesCount = 0;
-    var stonesCountElt = document.getElementById('stones-count').getElementsByTagName('span')[0];
 
     Array.forEach(stonesList, function (stoneElt) {
         var onStoneClick = function (e) {
             e.preventDefault();
             this.classList.toggle('selected');
-
-            this.selected = !this.selected;
-            if (this.selected) {
-                stonesCount++;
-            }
-            else {
-                stonesCount--;
-            }
-
-            stonesCountElt.innerHTML = stonesCount.toString();
         }
         stoneElt.addEventListener('click', onStoneClick);
         stoneElt.addEventListener('touchstart', onStoneClick);
